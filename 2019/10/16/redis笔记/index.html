@@ -6,16 +6,29 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: this is my first blog. | blog of dzyls</title>
+  <title>redis笔记 | blog of dzyls</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="blog of dzyls">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;this-is-my-first-blog&#x2F;index.html">
+  <meta name="description" content="Redis简介 Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis笔记">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;16&#x2F;redis%E7%AC%94%E8%AE%B0&#x2F;index.html">
 <meta property="og:site_name" content="blog of dzyls">
+<meta property="og:description" content="Redis简介 Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务">
 <meta property="og:locale" content="cn">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925150517446.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925151031944.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925151600862.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925161943181.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925161952995.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925163101930.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925163359733.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925163647259.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925163900602.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-10-16T14:55:49.056Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img-blog.csdnimg.cn&#x2F;20190925150517446.png?x-oss-process=image&#x2F;watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70">
   
     <link rel="alternative" href="/atom.xml" title="blog of dzyls" type="application/atom+xml">
   
@@ -58,7 +71,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="/img/head.jpg" class="js-avatar">
+			<img src="/img/head.png" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/">dzyls</a></h1>
@@ -96,18 +109,6 @@
 		        
 			</div>
 		
-			
-			
-			
-			
-			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=725692&auto=1&height=66"></iframe>
-			</div>
-			
-				
-				<p style="font-size: 12px;">这似乎是首纯音乐，请尽情的欣赏它吧！<p>
-			
-		
 		</nav>
 	</header>		
 </div>
@@ -125,7 +126,7 @@
 		<header id="header" class="inner">
 			<div class="profilepic">
 				<a href="/">
-					<img src="/img/head.jpg" class="js-avatar">
+					<img src="/img/head.png" class="js-avatar">
 				</a>
 			</div>
 			<hgroup>
@@ -176,65 +177,407 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-redis笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/16/my-first-blog/" class="archive-article-date">
-        <time datetime="2019-10-16T14:23:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-
-        </div>
-    	 
+      <header class="article-header">
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/16/my-first-blog/" target="_blank">my first blog</a>
   
+    <h1 class="article-title" itemprop="name">
+      redis笔记
     </h1>
   
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">this is my first blog.</a>
-        		</li>
-      		
-		</ul>
-	</div>
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-          
+<a href="/2019/10/16/redis%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <time datetime="2019-10-16T14:49:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
+</a>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">3k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">11分</span>
+    </span>
+  </span>
+</div>
+
+
   
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h3><hr>
+<pre><code>Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务</code></pre><a id="more"></a>
+
+<h3 id="Redis安装及配置"><a href="#Redis安装及配置" class="headerlink" title="Redis安装及配置"></a>Redis安装及配置</h3><hr>
+<ol>
+<li>用docker运行Redis<blockquote>
+<p><code>docker pull redis</code><br><code>docker run -d --name redis -p 6379:6379 redis</code><br><code>docker exec -it redis redis-cli</code></p>
+</blockquote>
+</li>
+<li>Linux安装<blockquote>
+<ol>
+<li>确保Linux已经<a href="https://blog.csdn.net/qq_33571814/article/details/82380215" target="_blank" rel="noopener">安装gcc</a></li>
+<li>下载Redis<br><code>wget http://download.redis.io/releases/redis-4.0.1.tar.gz</code></li>
+<li>解压<br><code>tar -zxvf redis-4.0.1.tar.gz</code></li>
+<li>进入目录后编译<br><code>cd redis-4.0.1</code><br><code>make MALLOC=libc</code></li>
+<li>安装<br><code>make PREFIX=/usr/local/redis install</code> #指定安装目录为/usr/local/redis</li>
+<li>启动<br><code>/usr/local/redis/bin/redis-server</code></li>
+</ol>
+</blockquote>
+</li>
+<li>Redis配置<blockquote>
+<ol>
+<li>进入解压的Redis目录，将redis.conf复制到安装文件的目录下<br><code>cp redis.conf /usr/local/redis</code></li>
+<li>启动自定义配置的Redis<br><code>/usr/local/redis/bin/redis-server /usr/local/redis/redis.conf</code></li>
+</ol>
+</blockquote>
+</li>
+<li>配置详解<blockquote>
+<ul>
+<li>daemonize ： 默认为no，修改为yes启用守护线程</li>
+<li>port ：设定端口号，默认为6379</li>
+<li>bind ：绑定IP地址</li>
+<li>databases ：数据库数量，默认16</li>
+<li>save &lt;second&gt; &lt;changes&gt; ：指定多少时间、有多少次更新操作，就将数据同步到数据文件<br><code>#redis默认配置有三个条件，满足一个即进行持久化</code><br><code>save 900 1</code> #900s有1个更改<br><code>save 300 10</code> #300s有10个更改<br><code>save 60 10000</code> #60s有10000更改</li>
+<li>dbfilename ：指定本地数据库的文件名，默认为dump.rdb</li>
+<li>dir ：指定本地数据库的存放目录，默认为./当前文件夹</li>
+<li>requirepass ：设置密码，默认关闭<br><code>redis -cli -h host -p port -a password</code></li>
+</ul>
+<ol start="5">
+<li>Redis关闭</li>
+</ol>
+<ul>
+<li>使用kill命令 (非正常关闭，数据易丢失)<br><code>ps -ef|grep -i redis</code><br><code>kill -9 PID</code></li>
+<li>正常关闭<br><code>redis-cli shutdown</code> </li>
+</ul>
+</blockquote>
+<h3 id="Redis常用命令"><a href="#Redis常用命令" class="headerlink" title="Redis常用命令"></a>Redis常用命令</h3></li>
+</ol>
+<hr>
+<blockquote>
+<p>Redis五种数据类型：string、hash、list、set、zset</p>
+</blockquote>
+<h5 id="公用命令"><a href="#公用命令" class="headerlink" title="公用命令"></a>公用命令</h5><blockquote>
+<ul>
+<li>DEL key </li>
+<li>DUMP key：序列化给定key，返回被序列化的值</li>
+<li>EXISTS key：检查key是否存在</li>
+<li>EXPIRE key second：为key设定过期时间</li>
+<li>TTL key：返回key剩余时间</li>
+<li>PERSIST key：移除key的过期时间，key将持久保存</li>
+<li>KEY pattern：查询所有符号给定模式的key</li>
+<li>RANDOM key：随机返回一个key</li>
+<li>RANAME key newkey：修改key的名称</li>
+<li>MOVE key db：移动key至指定数据库中</li>
+<li>TYPE key：返回key所储存的值的类型</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">EXPIRE key second的使用场景：</span><br><span class="line">1、限时的优惠活动</span><br><span class="line">2、网站数据缓存</span><br><span class="line">3、手机验证码</span><br><span class="line">4、限制网站访客频率</span><br></pre></td></tr></table></figure>
+<h5 id="key的命名建议"><a href="#key的命名建议" class="headerlink" title="key的命名建议"></a>key的命名建议</h5><ol>
+<li>key不要太长，尽量不要超过1024字节。不仅消耗内存，也会降低查找的效率</li>
+<li>key不要太短，太短可读性会降低</li>
+<li>在一个项目中，key最好使用统一的命名模式，如user:123:password</li>
+<li>key区分大小写</li>
+</ol>
+<h4 id="string"><a href="#string" class="headerlink" title="string"></a>string</h4><blockquote>
+<p>string类型是二进制安全的，redis的string可以包含任何数据，如图像、序列化对象。一个键最多能存储512MB。==二进制安全是指，在传输数据的时候，能保证二进制数据的信息安全，也就是不会被篡改、破译；如果被攻击，能够及时检测出来 ==</p>
+</blockquote>
+<blockquote>
+<ul>
+<li><strong>setkey_name value</strong>：命令不区分大小写，但是key_name区分大小写</li>
+<li><strong>SETNX key value</strong>：当key不存在时设置key的值。（SET if Not eXists）</li>
+<li>get key_name</li>
+<li>GETRANGE key start end：获取key中字符串的子字符串，从start开始，end结束</li>
+<li>MGET key1 [key2 …]：获取多个key</li>
+<li>GETSET KEY_NAME VALUE：设定key的值，并返回key的旧值。当key不存在，返回nil</li>
+<li>STRLEN key：返回key所存储的字符串的长度</li>
+<li><strong>INCR KEY_NAME</strong> ：INCR命令key中存储的值+1,如果不存在key，则key中的值话先被初始化为0再加1</li>
+<li><strong>INCRBY KEY_NAME</strong> 增量</li>
+<li><strong>DECR KEY_NAME</strong>：key中的值自减一</li>
+<li><strong>DECRBY KEY_NAME</strong> </li>
+<li>append key_name value：字符串拼接，追加至末尾，如果不存在，为其赋值</li>
+</ul>
+</blockquote>
+<p><strong><em>String应用场景：</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、String通常用于保存单个字符串或JSON字符串数据</span><br><span class="line">2、因为String是二进制安全的，所以可以把保密要求高的图片文件内容作为字符串来存储</span><br><span class="line">3、计数器：常规Key-Value缓存应用，如微博数、粉丝数。INCR本身就具有原子性特性，所以不会有线程安全问题</span><br></pre></td></tr></table></figure>
+<h4 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h4><p>Redis hash是一个string类型的field和value的映射表，<strong>hash特别适用于存储对象</strong>。每个hash可以存储2^32^-1键值对。可以看成KEY和VALUE的MAP容器。相比于JSON，hash占用很少的内存空间。</p>
+<p><strong><em>常用命令</em></strong></p>
+<blockquote>
+<ul>
+<li>HSET key_name field value：为指定的key设定field和value</li>
+<li>hmset key field value[field1,value1]</li>
+<li>hget key field</li>
+<li>hmget key field[field1]</li>
+<li>hgetall key：返回hash表中所有字段和值</li>
+<li>hkeys key：获取hash表所有字段</li>
+<li>hlen key：获取hash表中的字段数量</li>
+<li>hdel key field [field1]：删除一个或多个hash表的字段</li>
+</ul>
+</blockquote>
+<p><strong><em>应用场景</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hash的应用场景，通常用来存储一个用户信息的对象数据。</span><br><span class="line">1、相比于存储对象的string类型的json串，json串修改单个属性需要将整个值取出来。而hash不需要。</span><br><span class="line">2、相比于多个key-value存储对象，hash节省了很多内存空间</span><br><span class="line">3、如果hash的属性值被删除完，那么hash的key也会被redis删除</span><br></pre></td></tr></table></figure>
+<h4 id="list"><a href="#list" class="headerlink" title="list"></a>list</h4><p>类似于Java中的LinkedList。</p>
+<p><strong><em>常用命令</em></strong></p>
+<blockquote>
+<ul>
+<li>lpush key value1 [value2]</li>
+<li>rpush key value1 [value2]</li>
+<li>lpushx key value：从左侧插入值，如果list不存在，则不操作</li>
+<li>rpushx key value：从右侧插入值，如果list不存在，则不操作</li>
+<li>llen key：获取列表长度</li>
+<li>lindex key index：获取指定索引的元素</li>
+<li>lrange key start stop：获取列表指定范围的元素</li>
+<li>lpop key ：从左侧移除第一个元素</li>
+<li>prop key：移除列表最后一个元素</li>
+<li>blpop key [key1] timeout：移除并获取列表第一个元素，如果列表没有元素会阻塞列表到等待超时或发现可弹出元素为止</li>
+<li>brpop key [key1] timeout：移除并获取列表最后一个元素，如果列表没有元素会阻塞列表到等待超时或发现可弹出元素为止</li>
+<li>ltrim key start stop ：对列表进行修改，让列表只保留指定区间的元素，不在指定区间的元素就会被删除</li>
+<li>lset key index value ：指定索引的值</li>
+<li>linsert key before|after world value：在列表元素前或则后插入元素</li>
+</ul>
+</blockquote>
+<p><strong><em>应用场景</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、对数据大的集合数据删减</span><br><span class="line">		列表显示、关注列表、粉丝列表、留言评价...分页、热点新闻等</span><br><span class="line">2、任务队列</span><br><span class="line">		list通常用来实现一个消息队列，而且可以确保先后顺序，不必像MySQL那样通过order by来排序</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>补充：</p>
+<ul>
+<li>rpoplpush list1 list2 移除list1最后一个元素，并将该元素添加到list2并返回此元素<br>用此命令可以实现订单下单流程、用户系统登录注册短信等。</li>
+</ul>
+</blockquote>
+<h4 id="set"><a href="#set" class="headerlink" title="set"></a>set</h4><p>唯一、无序</p>
+<blockquote>
+<ul>
+<li>sadd key value1[value2]：向集合添加成员</li>
+<li>scard key：返回集合成员数</li>
+<li>smembers key：返回集合中所有成员</li>
+<li>sismember key member：判断memeber元素是否是集合key成员的成员</li>
+<li>srandmember key [count]：返回集合中一个或多个随机数</li>
+<li>srem key member1 [member2]：移除集合中一个或多个成员</li>
+<li>spop key：移除并返回集合中的一个随机元素</li>
+<li>smove source destination member：将member元素从source集合移动到destination集合</li>
+<li>sdiff key1 [key2]：返回所有集合的差集</li>
+<li>sdiffstore destination key1[key2]：返回给定所有集合的差集并存储在destination中</li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">对两个集合间的数据[计算]进行交集、并集、差集运算</span><br><span class="line">1、以非常方便的实现如共同关注、共同喜好、二度好友等功能。对上面的所有集合操作，你还可以使用不同的命令选择将结果返回给客户端还是存储到一个新的集合中。</span><br><span class="line">2、利用唯一性，可以统计访问网站的所有独立 IP</span><br></pre></td></tr></table></figure>
+
+<h4 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h4><p>有序且不重复。每个元素都会关联一个double类型的分数，Redis通过分数进行从小到大的排序。分数可以重复 </p>
+<blockquote>
+<p>ZADD key score1 memeber1<br>ZCARD key ：获取集合中的元素数量<br>ZCOUNT key min max 计算在有序集合中指定区间分数的成员数<br>ZCOUNT key min max 计算在有序集合中指定区间分数的成员数<br>ZRANK key member：返回有序集合指定成员的索引<br>ZREVRANGE key start stop ：返回有序集中指定区间内的成员，通过索引，分数从高到底<br>ZREM key member [member …] 移除有序集合中的一个或多个成员<br>ZREMRANGEBYRANK key start stop 移除有序集合中给定的排名区间的所有成员(第一名是0)(低到高排序）<br>ZREMRANGEBYSCORE key min max 移除有序集合中给定的分数区间的所有成员</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常用于排行榜：</span><br><span class="line">1、如推特可以以发表时间作为score来存储</span><br><span class="line">2、存储成绩</span><br><span class="line">3、还可以用zset来做带权重的队列，让重要的任务先执行</span><br></pre></td></tr></table></figure>
+
+<h3 id="Jedis和Spring-data-redis"><a href="#Jedis和Spring-data-redis" class="headerlink" title="Jedis和Spring-data-redis"></a>Jedis和Spring-data-redis</h3><hr>
+<ol>
+<li>连接redis<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public void test()&#123;</span><br><span class="line">	Jedis jedis = new Jedis(&quot;host&quot;,port);</span><br><span class="line">	jedis.auth(&quot;password&quot;);</span><br><span class="line">	// 操作redis</span><br><span class="line">	jedis.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>JedisPool</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 创建config</span><br><span class="line">JedisPoolConfig config = new JedisPoolConfig();</span><br><span class="line">con.setMaxTotal(5);// 最大连接数</span><br><span class="line">...</span><br><span class="line">// 创建连接池</span><br><span class="line">JedisPool pool = new JedisPool(config,host,port);</span><br><span class="line">Jedis jedis = pool.getResource();</span><br><span class="line">jedis.auth();</span><br><span class="line"></span><br><span class="line">jedis.close();</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Spring-data<blockquote>
+<ul>
+<li>导入Jedis和Spring-data-redis</li>
+<li>配置文件如下<br><img src="https://img-blog.csdnimg.cn/20190925150517446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>测试连接<br><img src="https://img-blog.csdnimg.cn/20190925151031944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>配置序列化方法：<br>把任何数据保存到redis中，都需要经过序列化，默认使用JdkSerializationRedisSerializer进行序列化。JdkSerializationRedisSerializer会对所有的key和value还有hashkey和hashvalue的原始字符前，都加了一串字符串。<img src="https://img-blog.csdnimg.cn/20190925151600862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+</blockquote>
+<h3 id="Redis功能特性"><a href="#Redis功能特性" class="headerlink" title="Redis功能特性"></a>Redis功能特性</h3></li>
+</ol>
+<hr>
+<h4 id="发布订阅"><a href="#发布订阅" class="headerlink" title="发布订阅"></a>发布订阅</h4><p>Redis 发布订阅(pub/sub)是一种消息通信模式：发送者(pub)发送消息，订阅者(sub)接收消息。</p>
+<p>Redis 客户端可以订阅任意数量的频道。</p>
+<p>下图展示了频道 channel1 ， 以及订阅这个频道的三个客户端 —— client2 、 client5 和 client1 之间的关系：<br><img src="https://img-blog.csdnimg.cn/20190925161943181.png" alt="在这里插入图片描述"><br>当有新消息通过 PUBLISH 命令发送给频道 channel1 时， 这个消息就会被发送给订阅它的三个客户端：<br><img src="https://img-blog.csdnimg.cn/20190925161952995.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong><em>命令</em></strong></p>
+<blockquote>
+<ul>
+<li>subscribe channel [channel…]：订阅一个或多个频道的信息</li>
+<li>psubscribe pattern [pattern…]：订阅一个或多个符合规定模式的频道</li>
+<li>publish channel message ：将信息发送到指定频道</li>
+<li>unsubscribe [channel[channel…]]：退订频道</li>
+<li>punsubscribe [pattern[pattern…]]：退订所有给定模式的频道</li>
+</ul>
+</blockquote>
+<p><strong><em>应用场景</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">构建实时的消息系统，比如普通聊天、群聊等功能。</span><br><span class="line">1、博客网站订阅，当作者发布就可以推送给粉丝</span><br><span class="line">2、微信公众号模式</span><br></pre></td></tr></table></figure>
+<h4 id="Redis多数据库"><a href="#Redis多数据库" class="headerlink" title="Redis多数据库"></a>Redis多数据库</h4><blockquote>
+<ul>
+<li>select db</li>
+<li>move key db</li>
+<li>flushdb</li>
+<li>flushall </li>
+</ul>
+</blockquote>
+<h4 id="Redis-事务"><a href="#Redis-事务" class="headerlink" title="Redis 事务"></a>Redis 事务</h4><p>Redis事务可以一次执行多个命令，（按顺序地串行化执行，执行过程中不允许其他命令插入执行序列中）。<br>1、Redis会将一个事务中的所有命令序列化，然后按顺序执行<br>2、执行中不会被其他命令插入，不允许加塞行为</p>
+<p><img src="https://img-blog.csdnimg.cn/20190925163101930.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<blockquote>
+<ol>
+<li>输入Multi命令开始，输入的命令都会依次进入命令队列中，但不会执行</li>
+<li>直到输入exec后，Redis会将之前队列中的命令依次执行<br><img src="https://img-blog.csdnimg.cn/20190925163359733.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>discard放弃队列执行<br><img src="https://img-blog.csdnimg.cn/20190925163647259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>如果某个命令报出错，则只有报错的命令不会被执行，而其他的命令都会执行，不会回滚。<br><img src="https://img-blog.csdnimg.cn/20190925163900602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzMzNDIzNDE4,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+<li>如果队列中某个命令出现报告错误（语法错误），执行时整个队列都会被取消</li>
+</ol>
+</blockquote>
+<h4 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h4><p><a href="https://blog.csdn.net/qq_33423418/article/details/101442873" target="_blank" rel="noopener">Redis主从复制配置</a></p>
+<h4 id="Redis集群"><a href="#Redis集群" class="headerlink" title="Redis集群"></a>Redis集群</h4><p><strong>Redis集群搭建：</strong><br><a href="https://redis.io/documentation" target="_blank" rel="noopener">Redis documentation</a><br><a href="https://redis.io/topics/cluster-tutorial" target="_blank" rel="noopener">Redis cluster tutorial</a><br><a href="https://blog.csdn.net/qq_33423418/article/details/101516948" target="_blank" rel="noopener">Redis-5.0.5集群搭建</a><br><a href="https://blog.csdn.net/yuhaibao324/article/details/92008507" target="_blank" rel="noopener">单机Redis和集群Redis的区别</a><br><a href="https://blog.csdn.net/lx1309244704/article/details/80681292" target="_blank" rel="noopener">Redis-4.0集群搭建</a></p>
+<h4 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h4><ol>
+<li>RDB<blockquote>
+<p>RDB是Redis默认持久化机制。RDB相当于快照，保存的是一种状态</p>
+</blockquote>
+</li>
+</ol>
+<p>优点：<br>    保存速度、还原速度极快<br>    适用于灾难备份<br>缺点：<br>    小内存的机器不符合使用。RDB机制符合要求就会快照。</p>
+<ol start="2">
+<li>AOF<br>如果Redis意外down掉，RDB方式会丢失最后一次快照后的所有修改。如果要求应用不能丢失任何修改，可以采用AOF持久化方式。<blockquote>
+<p>AOF：Append-Only File：Redis会将没一个收到写命令都追加到文件中（默认是appendonly.aof）。当Redis重启时会通过重新执行文件中的写命令重建整个数据库的内容。</p>
+</blockquote>
+</li>
+</ol>
+<p>产生的问题：<br>    有些命令是多余的。</p>
 
     
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          dzyls
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://yoursite.com/2019/10/16/redis笔记/" title="redis笔记" target="_blank">http://yoursite.com/2019/10/16/redis笔记/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/16/redis%E7%AC%94%E8%AE%B0/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
           </div>
@@ -275,9 +618,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -353,10 +696,6 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">this is my first blog.</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
