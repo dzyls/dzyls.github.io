@@ -202,9 +202,9 @@
     <h3 id="一、SSO简介"><a href="#一、SSO简介" class="headerlink" title="一、SSO简介"></a>一、SSO简介</h3><hr>
 <p>单点登录SSO（Single Sign On）：是指多系统应用群中登录一个系统，即可在其他系统得到授权而无需再次登录，包括单点登录、单点注销。</p>
 <p>在以前单系统，所有功能都在一个系统上：</p>
-<p><img src="%E5%8D%95%E7%B3%BB%E7%BB%9F.jpg" alt="单系统"></p>
+<p><img src="./%E5%8D%95%E7%B3%BB%E7%BB%9F.jpg" alt="单系统"></p>
 <p>后来为了开发方便、降低耦合，把单系统拆分成多个子系统：</p>
-<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F.jpg" alt="分布式系统"></p>
+<p><img src="./%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F.jpg" alt="分布式系统"></p>
 <h3 id="二、单系统登录"><a href="#二、单系统登录" class="headerlink" title="二、单系统登录"></a>二、单系统登录</h3><hr>
 <p>众所周知，HTTP是无状态协议，这就意味着服务器无法确认用户信息。于是提出了Cookie，服务器端的Session基于Cookie来识别是那个用户。登录时用户信息保存在Session对象中，再次来访时如果能在Session中查到用户信息说明已经登录。注销就是从Session中删除用户信息。</p>
 <h3 id="三、多系统登录的问题"><a href="#三、多系统登录的问题" class="headerlink" title="三、多系统登录的问题"></a>三、多系统登录的问题</h3><hr>
@@ -260,7 +260,7 @@
 <p>如淘宝和天猫</p>
 </blockquote>
 <p>​    <strong>基于CAS</strong>（中央认证服务器）</p>
-<p>​    <img src="CAS%E5%8E%9F%E7%90%86.jpg" alt="CAS原理"></p>
+<p>​    <img src="./CAS%E5%8E%9F%E7%90%86.jpg" alt="CAS原理"></p>
 <p>主要步骤分为：</p>
 <pre><code>1. 用户请求某一个CAS Client，或者直接请求CAS Server登录页面
  2. 用户到CAS Server登录页面验证，验证成功后，CAS Server返回ticket到客户端
