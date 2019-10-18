@@ -6,16 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>blog of dzyls</title>
+  <title>Tag: 技术 | blog of dzyls</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="">
-  
   <meta property="og:type" content="website">
 <meta property="og:title" content="blog of dzyls">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;index.html">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;%E6%8A%80%E6%9C%AF&#x2F;index.html">
 <meta property="og:site_name" content="blog of dzyls">
 <meta property="og:locale" content="cn">
 <meta name="twitter:card" content="summary">
@@ -168,120 +165,40 @@
           </div>
           <div id="js-content" class="content-ll">
             
-
   
-    <article id="post-单点登录笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-  
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2019/10/18/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+        <time datetime="2019-10-18T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
+</a>
+
+        </div>
+    	 
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/10/18/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0/" target="_blank">单点登录笔记</a>
+	  <a class="archive-article-title" href="/2019/10/18/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0/" target="_blank">单点登录笔记</a>
   
     </h1>
   
 
 
-  
-  
-<a href="/2019/10/18/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2019-10-18T03:52:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-18</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="一、SSO简介"><a href="#一、SSO简介" class="headerlink" title="一、SSO简介"></a>一、SSO简介</h3><hr>
-<p>单点登录SSO（Single Sign On）：是指多系统应用群中登录一个系统，即可在其他系统得到授权而无需再次登录，包括单点登录、单点注销。</p>
-<p>在以前单系统，所有功能都在一个系统上：</p>
-<p><img src="%E5%8D%95%E7%B3%BB%E7%BB%9F.jpg" alt="单系统"></p>
-<p>后来为了开发方便、降低耦合，把单系统拆分成多个子系统：</p>
-<p><img src="%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F.jpg" alt="分布式系统"></p>
-<h3 id="二、单系统登录"><a href="#二、单系统登录" class="headerlink" title="二、单系统登录"></a>二、单系统登录</h3><hr>
-<p>众所周知，HTTP是无状态协议，这就意味着服务器无法确认用户信息。于是提出了Cookie，服务器端的Session基于Cookie来识别是那个用户。登录时用户信息保存在Session对象中，再次来访时如果能在Session中查到用户信息说明已经登录。注销就是从Session中删除用户信息。</p>
-<h3 id="三、多系统登录的问题"><a href="#三、多系统登录的问题" class="headerlink" title="三、多系统登录的问题"></a>三、多系统登录的问题</h3><hr>
-<h4 id="3-1-Session不共享的问题"><a href="#3-1-Session不共享的问题" class="headerlink" title="3.1 Session不共享的问题"></a>3.1 Session不共享的问题</h4><p>单系统登录主要是使用Session保存用户信息，而多系统有多个Tomcat，多系统的Tomcat的Session是不共享的。</p>
-<p>解决Session不共享的方案有：</p>
-<p>1、Tomcat集群Session全复制（集群内Session同步）</p>
-<p>2、ip hash，将请求的ip映射到固定的的服务器。【如果服务器宕机，会丢失Session数据】</p>
-<p>3、Session数据放在Redis中。（分布式缓存）【建议】</p>
-<h4 id="3-2-Cookie跨域的问题"><a href="#3-2-Cookie跨域的问题" class="headerlink" title="3.2 Cookie跨域的问题"></a>3.2 Cookie跨域的问题</h4><p>Cookie是不可跨域的，比如说，请求谷歌时不会把百度的Cookie带给服务器。</p>
-<p>针对Cookie的跨域问题，有几种解决方案：</p>
-<p>1、多个域名共享Cookie，在写到客户端设置Cookie的domain</p>
-<blockquote>
-<p>a.baidu.com和b.baidu.com的Cookie的domain设置为baidu.com即可让a和b共享Cookie</p>
-</blockquote>
-<p>2、服务端将Cookie写到客户端后，客户端把Cookie中的Token取出来，此后请求的时候带上这个Token</p>
-<p>3、Token存入SessionStroage</p>
-<h3 id="四、SSO解决方案"><a href="#四、SSO解决方案" class="headerlink" title="四、SSO解决方案"></a>四、SSO解决方案</h3><hr>
-<h5 id="1、同一父域下的单点登录"><a href="#1、同一父域下的单点登录" class="headerlink" title="1、同一父域下的单点登录"></a>1、同一父域下的单点登录</h5><blockquote>
-<p>如map.baidu.com何yun.baidu.com</p>
-</blockquote>
-<p>​    <strong>基于cookie的JWT</strong></p>
-<p>JWT：JSON Web Token，由三部分组成，之间由圆点连接，这三部分分别是Header，Payload，Signature。</p>
-<p><strong>Header</strong>：头部，存放jwt的基本信息，如类型和所用的算法。</p>
-<p><strong>Payload</strong>：存放一些不敏感信息，如签发者、面向的用户、过期时间、签发时间</p>
-<p><strong>Signature</strong>：密匙，保证消息不被篡改。</p>
-<p>基于Session和基于JWT的方式主要区别就是用户状态存放的位置，Session是保存在服务器端，JWT存放在客户端。</p>
-<p>jwt的优点：</p>
-<ol>
-<li><p>可扩展就性好。</p>
-<p>在分布式系统的情况下，Session需要做共享，需要搭配Redis使用。而JWT不需要。</p>
-<ol start="2">
-<li>无状态</li>
-</ol>
-<p>jwt不在服务器存储任何状态</p>
-</li>
-</ol>
-<p>jwt的缺点：</p>
-<ol>
-<li><p>安全性</p>
-<p>Session存放于服务器端，相对来说更安全</p>
-<ol start="2">
-<li>性能</li>
-</ol>
-<p>jwt太长，经过编码后jwt更大，Cookie放不下，一般放在local storage里面。而Session只是一个很短的字符串。</p>
-<ol start="3">
-<li>一次性</li>
-</ol>
-<p>jwt是无状态的，但也导致了jwt是一次性的，想修改jwt的内容就得重新颁发一个新的jwt。</p>
-<p>此外jwt是无法废弃的，如果想要破解jwt的一次性的特性，就需要引入Redis。但引入Redis后jwt就是有状态的了，和Session方案差不多。</p>
-</li>
-</ol>
-<h5 id="2、同一公司，不同域"><a href="#2、同一公司，不同域" class="headerlink" title="2、同一公司，不同域"></a>2、同一公司，不同域</h5><blockquote>
-<p>如淘宝和天猫</p>
-</blockquote>
-<p>​    <strong>基于CAS</strong>（中央认证服务器）</p>
-<p>​    <img src="CAS%E5%8E%9F%E7%90%86.jpg" alt="CAS原理"></p>
-<p>主要步骤分为：</p>
-<pre><code>1. 用户请求某一个CAS Client，或者直接请求CAS Server登录页面
- 2. 用户到CAS Server登录页面验证，验证成功后，CAS Server返回ticket到客户端
- 3. 客户端再次请求CAS Client资源，CAS Client携带ticket到CAS Server认证即可</code></pre><p>实现步骤：</p>
-<pre><code>1. 搭建CAS Server端，可使用CAS的框架实现，可自定义登录页面，实现内部接口
- 2. 搭建CAS Client端，就是公司的不同的服务器系统，携带密匙即可</code></pre><h5 id="3、不同公司、不同域，第三方登录功能"><a href="#3、不同公司、不同域，第三方登录功能" class="headerlink" title="3、不同公司、不同域，第三方登录功能"></a>3、不同公司、不同域，第三方登录功能</h5><blockquote>
-<p>使用QQ或者微信登录其他网站</p>
-</blockquote>
-<p>​    <strong>基于OAuth2.0协议</strong></p>
-<p>还可以基于Redis做单点登录，将登录信息存储到分布式缓存中并设置过期时间，此后访问另外的子系统只需要检查Redis中是否存在此Token。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -293,130 +210,19 @@
 		</ul>
 	</div>
 
-    
+          
 
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/18/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-redis笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/16/redis%E7%AC%94%E8%AE%B0/" target="_blank">redis笔记</a>
-  
-    </h1>
+    </div></section>
   
 
-
-  
-  
-<a href="/2019/10/16/redis%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-        <time datetime="2019-10-16T14:49:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-16</time>
-</a>
-
-  
-  
     
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h3><hr>
-<pre><code>Redis：开源、免费、高性能、K-V数据库、内存数据库、非关系型数据库，支持持久化、集群和事务</code></pre>
-    
-    <a class="article-more-a" href="/2019/10/16/redis%E7%AC%94%E8%AE%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/16/redis%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -456,10 +262,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
