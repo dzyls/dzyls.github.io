@@ -200,15 +200,9 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>java.lang.IllegalStateException: Unable to load cache item</p>
-<p><code>-noverify</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Initialization of bean failed; nested exception is org.springframework.aop.framework.AopConfigException: Unexpected AOP exception; nested exception is java.lang.IllegalStateException: Unable to load cache item</span><br></pre></td></tr></table></figure>
-
-<p>并且 debug 报</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.VerifyError: Stack map does not match the one at exception handler <span class="number">9</span></span><br></pre></td></tr></table></figure>
-
-<p>这种是<code>jvm</code>验证时出了错误：说是字节码错误：<br>网上的解释是因为使用了java的新特性，所以使用较高的版本进行编译时就会报这个错。</p>
-<p>对于<code>java7</code>而言，需要添加<code>-XX:-UseSplitVerifier</code>（已实践）。<br>对于<code>java8</code>而言，需要添加<code>-noverify</code></p>
-
+    
+    <a class="article-more-a" href="/2020/04/29/IllegalStateException/#more">more >></a>
+    
     
 
     
@@ -563,11 +557,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">技术</a>
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">技术</a>
               </li>
             
             <div class="clearfix"></div>
